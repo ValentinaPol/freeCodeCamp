@@ -18,24 +18,23 @@ const recordCollection = {
     }
   };
   
-  // Only change code below this line
   function updateRecords(records, id, prop, value) {
-        if(prop === 'tracks' && records[id].hasOwnProperty(prop) === false){
-          let arrTracks = [];
-          arrTracks.push(value);
-          records[id][prop] = arrTracks;
-        } else if (prop === 'tracks' && records[id].hasOwnProperty(prop) && records[id][prop] !== ""){
-          records[id][prop].push(value);
-        } else if (records[id][prop] === ""){
-          delete records[id][prop];
-        } else {
-          records[id][prop] = value;
-        }
-      return records; 
+    if(value === "" && records[id].hasOwnProperty(prop)){
+      delete records[id][prop];
+    } else if(prop === 'tracks' && records[id].hasOwnProperty(prop) === false){
+      let arrTracks = [];
+      arrTracks.push(value);
+      records[id][prop] = arrTracks;
+    } else if (prop === 'tracks' && records[id].hasOwnProperty(prop)){
+      records[id][prop].push(value);
+    } else {
+      records[id][prop] = value;
+    }
+    return records; 
       
     }
   
-//updateRecords(recordCollection, 2548, "artist", "");
+  updateRecords(recordCollection, 5439, 'artist', 'ABBA');
   
   updateRecords(recordCollection, 5439, 'artist', 'ABBA');
   
