@@ -7,4 +7,5 @@ const makeServerRequest = new Promise((resolve, reject) => {
     } else {  
       reject("Data not received");
     }
+    
 });
